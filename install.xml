@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="hybridauth">
+	<title>HybridAuth</title>
+	<summary>Login integration with a plenty of popular social websites</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>3.3.0</version>
+	<date>2014-05-27</date>
+	<compatibility>3.3</compatibility>
+
+	<configgroup name="hybrid">Hybridauth</configgroup>
+
+	<config group="hybrid" name="hybrid_div" type="divider">General</config>
+	<config group="hybrid" name="hybrid_debug_mode" type="radio" values="1,0" description="Debug mode">0</config>
+	<config group="hybrid" name="hybrid_google" type="radio" values="1,0" description="Google">0</config>
+	<config group="hybrid" name="hybrid_google_id" type="text" description="Google ID" show="hybrid_google|1">app id</config>
+	<config group="hybrid" name="hybrid_google_secret" type="text" description="Google secret key" show="hybrid_google|1">secret key</config>
+	<config group="hybrid" name="hybrid_facebook" type="radio" values="1,0" description="Facebook">0</config>
+	<config group="hybrid" name="hybrid_facebook_id" type="text" description="Facebook ID" show="hybrid_facebook|1">app id</config>
+	<config group="hybrid" name="hybrid_facebook_secret" type="text" description="Facebook secret key" show="hybrid_facebook|1">secret key</config>
+	<config group="hybrid" name="hybrid_github" type="radio" values="1,0" description="Github">0</config>
+	<config group="hybrid" name="hybrid_github_id" type="text" description="Github client ID" show="hybrid_github|1">client id</config>
+	<config group="hybrid" name="hybrid_github_secret" type="text" description="Github secret key" show="hybrid_github|1">secret key</config>
+
+	<fields_groups>
+		<group item="members" name="socials" tabview="1" title="Social Login"><![CDATA[]]></group>
+	</fields_groups>
+
+	<fields>
+		<field item="members" group="socials" name="facebook_id" title="Facebook ID" type="text" adminonly="1" length="100">Facebook ID</field>
+		<field item="members" group="socials" name="google_id" title="Google ID" type="text" adminonly="1" length="100">Google ID</field>
+		<field item="members" group="socials" name="github_id" title="Github ID" type="text" adminonly="1" length="100">Github ID</field>
+	</fields>
+
+	<hooks>
+		<hook name="smartyFrontAfterMainContent" type="smarty" filename="plugins/hybridauth/templates/front/login.tpl" pages="login"><![CDATA[]]></hook>
+		<hook name="phpCoreBeforeAuth" page_type="front" filename="plugins/hybridauth/includes/hook.phpCoreBeforeAuth.php" pages="login"><![CDATA[]]></hook>
+		<hook name="phpUserLogout">
+			<![CDATA[
+require_once IA_PLUGINS . 'hybridauth/includes/Hybrid/Auth.php';
+
+Hybrid_Auth::logoutAllProviders();
+			]]>
+		</hook>
+		<hook name="phpCoreBeforePageDisplay" page_type="front" pages="login">
+			<![CDATA[
+if (iaView::REQUEST_HTML == $iaView->getRequestType())
+{
+	$iaView->add_css('_IA_URL_plugins/hybridauth/templates/front/css/style');
+}
+			]]>
+		</hook>
+	</hooks>
+
+	<pages>
+		<page url="hybridauth/" name="hybridauth" readonly="1">HybridAuth</page>
+	</pages>
+</plugin>
