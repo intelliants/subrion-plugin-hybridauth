@@ -4,23 +4,22 @@
 	<summary>Login integration with a plenty of popular social websites</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>3.3.0</version>
-	<date>2014-05-27</date>
-	<compatibility>3.3</compatibility>
+	<version>4.0.0</version>
+	<date>2014-11-16</date>
+	<compatibility>4.0</compatibility>
 
-	<configgroup name="hybrid">Hybridauth</configgroup>
-
-	<config group="hybrid" name="hybrid_div" type="divider">General</config>
-	<config group="hybrid" name="hybrid_debug_mode" type="radio" values="1,0" description="Debug mode">0</config>
-	<config group="hybrid" name="hybrid_google" type="radio" values="1,0" description="Google">0</config>
-	<config group="hybrid" name="hybrid_google_id" type="text" description="Google ID" show="hybrid_google|1">app id</config>
-	<config group="hybrid" name="hybrid_google_secret" type="text" description="Google secret key" show="hybrid_google|1">secret key</config>
-	<config group="hybrid" name="hybrid_facebook" type="radio" values="1,0" description="Facebook">0</config>
-	<config group="hybrid" name="hybrid_facebook_id" type="text" description="Facebook ID" show="hybrid_facebook|1">app id</config>
-	<config group="hybrid" name="hybrid_facebook_secret" type="text" description="Facebook secret key" show="hybrid_facebook|1">secret key</config>
-	<config group="hybrid" name="hybrid_github" type="radio" values="1,0" description="Github">0</config>
-	<config group="hybrid" name="hybrid_github_id" type="text" description="Github client ID" show="hybrid_github|1">client id</config>
-	<config group="hybrid" name="hybrid_github_secret" type="text" description="Github secret key" show="hybrid_github|1">secret key</config>
+	<configgroup name="hybridauth">Hybridauth</configgroup>
+	<config group="hybridauth" name="hybrid_div" type="divider">General</config>
+	<config group="hybridauth" name="hybrid_debug_mode" type="radio" values="1,0" description="Debug mode">0</config>
+	<config group="hybridauth" name="hybrid_google" type="radio" values="1,0" description="Google">0</config>
+	<config group="hybridauth" name="hybrid_google_id" type="text" description="Google ID" show="hybrid_google|1">app id</config>
+	<config group="hybridauth" name="hybrid_google_secret" type="text" description="Google secret key" show="hybrid_google|1">secret key</config>
+	<config group="hybridauth" name="hybrid_facebook" type="radio" values="1,0" description="Facebook">0</config>
+	<config group="hybridauth" name="hybrid_facebook_id" type="text" description="Facebook ID" show="hybrid_facebook|1">app id</config>
+	<config group="hybridauth" name="hybrid_facebook_secret" type="text" description="Facebook secret key" show="hybrid_facebook|1">secret key</config>
+	<config group="hybridauth" name="hybrid_github" type="radio" values="1,0" description="Github">0</config>
+	<config group="hybridauth" name="hybrid_github_id" type="text" description="Github client ID" show="hybrid_github|1">client id</config>
+	<config group="hybridauth" name="hybrid_github_secret" type="text" description="Github secret key" show="hybrid_github|1">secret key</config>
 
 	<fields_groups>
 		<group item="members" name="socials" tabview="1" title="Social Login"><![CDATA[]]></group>
